@@ -1,5 +1,13 @@
 version: '3'
 services:
+
+  app:
+    image: golang:1.20.3-bullseye
+    command: tail -f /dev/null
+    volumes:
+      - .:/go/src/app
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     environment:
